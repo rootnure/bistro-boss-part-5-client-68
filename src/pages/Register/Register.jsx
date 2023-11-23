@@ -13,11 +13,12 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser, updateUserInfo } = useAuthHook();
   const navigate = useNavigate();
-
+  const axiosPublic = useAxiosPublic();
   const captchaRef = useRef();
   const [disabled, setDisabled] = useState(true);
   useEffect(() => {
@@ -43,8 +44,17 @@ const Register = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then(() => {
-        reset();
+        const userInfo = {
+          email: data.email,
+          name: data.name,
+          role: "user",
+        };
+        // create user entry in the database
+        axiosPublic.post("/users", userInfo).then((userInDBRes) => {
+          console.log(userInDBRes);
+        });
         updateUserInfo(data.name, data.photo).then(() => {
+          reset();
           navigate("/", { replace: true });
           toast.success("Successfully Registered", {
             position: "top-center",

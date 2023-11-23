@@ -4,12 +4,7 @@
 
 ## Today's work
 
-- Added Enforce login on clicking add to cart in shop page
-- Save add to cart data to db
-- Axios overview
-- Used TanStack Query to fetch cart data
-- Create dashboard layout and route
-- Added delete cart item and update UI using `refetch()` from TanStack query
+- a
 
 ## React + Vite
 

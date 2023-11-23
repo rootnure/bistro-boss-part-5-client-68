@@ -82,7 +82,7 @@ const NavBar = () => {
           <li className="h-full">
             <img
               src={user.photoURL}
-              alt="User Profile Image"
+              alt={`DP of ${user.displayName}`}
               className="max-h-9 scale-125 hover:scale-[1.4] duration-75"
             />
           </li>

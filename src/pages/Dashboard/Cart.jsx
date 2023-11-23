@@ -35,7 +35,7 @@ const Cart = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16">
       <SectionTitle heading="Wanna Add More?" subHeading="My Cart" />
       <div className="w-3/4 mx-auto bg-white p-8 rounded-lg">
         <div className="flex justify-between text-4xl font-cinzel font-extrabold">

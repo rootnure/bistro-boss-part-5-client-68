@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Link, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
@@ -14,6 +14,14 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: (
+      <div className="text-center my-12">
+        Are you lost?{" "}
+        <Link to="/" className="btn btn-warning">
+          Back to home
+        </Link>
+      </div>
+    ),
     children: [
       {
         path: "/",
@@ -55,7 +63,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
