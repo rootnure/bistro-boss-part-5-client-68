@@ -1,0 +1,3 @@
+.dashboard.menu .active {
+    @apply !bg-transparent !text-white;
+}
