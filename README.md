@@ -1,10 +1,16 @@
-# Bistro Boss (Part 4)
+# Bistro Boss (Part 5)
 
 ## Work continue form [This Repository](https://github.com/rootnure/bistro-boss-part-4-client-67)
 
 ## Today's work
 
-- a
+- New user data post to DB
+- Setup Social (Google) login
+- Load all users form DB and load to dashboard
+- JWT to authorization (using Local Storage)
+- Admin panel and user panel upon role
+- Update role of users only by admin
+- Axios interceptor to set request headers and logout on response upon forbidden / unauthorized access
 
 ## React + Vite
 
