@@ -40,8 +40,15 @@ const NavBar = () => {
       <li>
         <NavLink
           className="hover:text-white hover:scale-110 duration-75"
-          to="/contact-us">
-          Contact Us
+          to="/menu">
+          Our Menu
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className="hover:text-white hover:scale-110 duration-75"
+          to="/shop">
+          Our Shop
         </NavLink>
       </li>
       <li>
@@ -54,15 +61,8 @@ const NavBar = () => {
       <li>
         <NavLink
           className="hover:text-white hover:scale-110 duration-75"
-          to="/menu">
-          Our Menu
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="hover:text-white hover:scale-110 duration-75"
-          to="/shop">
-          Our Shop
+          to="/contact-us">
+          Contact Us
         </NavLink>
       </li>
       {user ? (
@@ -79,13 +79,13 @@ const NavBar = () => {
               </NavLink>
             </p>
           </li>
-          <li className="h-full">
+          <span className="h-full cursor-pointer">
             <img
               src={user.photoURL}
               alt={`DP of ${user.displayName}`}
-              className="max-h-9 scale-125 hover:scale-[1.4] duration-75"
+              className="max-h-9 scale-125 hover:scale-[1.35] duration-75 rounded-full"
             />
-          </li>
+          </span>
         </>
       ) : (
         <></>

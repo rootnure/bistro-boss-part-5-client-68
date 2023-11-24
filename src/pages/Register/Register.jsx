@@ -41,19 +41,20 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    createUser(data.email, data.password)
+  const onSubmit = ({ name, email, photo, password }) => {
+    createUser(email, password)
       .then(() => {
         const userInfo = {
-          email: data.email,
-          name: data.name,
+          email,
+          name,
           role: "user",
         };
         // create user entry in the database
         axiosPublic.post("/users", userInfo).then((userInDBRes) => {
           console.log(userInDBRes);
         });
-        updateUserInfo(data.name, data.photo).then(() => {
+        console.log({ photo });
+        updateUserInfo(name, photo).then(() => {
           reset();
           navigate("/", { replace: true });
           toast.success("Successfully Registered", {

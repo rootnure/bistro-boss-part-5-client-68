@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Cart from "../pages/Dashboard/Cart";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,7 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // users route
       {
         index: true,
         element: <div>home</div>,
@@ -92,6 +94,28 @@ export const router = createBrowserRouter([
       {
         path: "my-bookings",
         element: <div>my-bookings</div>,
+      },
+      {
+        path: "reservation",
+        element: <div>reservation</div>,
+      },
+
+      // admin routes
+      {
+        path: "add-items",
+        element: <div>add-items</div>,
+      },
+      {
+        path: "manage-items",
+        element: <div>manage-items</div>,
+      },
+      {
+        path: "manage-bookings",
+        element: <div>my-bookings</div>,
+      },
+      {
+        path: "all-users",
+        element: <AllUsers />,
       },
     ],
   },
