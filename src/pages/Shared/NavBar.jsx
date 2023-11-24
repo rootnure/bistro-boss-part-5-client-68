@@ -79,13 +79,13 @@ const NavBar = () => {
               </NavLink>
             </p>
           </li>
-          <span className="h-full cursor-pointer">
+          <Link to="/dashboard" className="h-full cursor-pointer">
             <img
               src={user.photoURL}
               alt={`DP of ${user.displayName}`}
               className="max-h-9 scale-125 hover:scale-[1.35] duration-75 rounded-full"
             />
-          </span>
+          </Link>
         </>
       ) : (
         <></>
