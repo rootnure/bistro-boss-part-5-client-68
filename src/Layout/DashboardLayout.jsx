@@ -19,12 +19,12 @@ import {
   FaUsers,
 } from "react-icons/fa6";
 import Container from "../components/Container";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
   const { pathname } = useLocation();
 
-  // TOOD: get isAdmin value from DB
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <Container>
