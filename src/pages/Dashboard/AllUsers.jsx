@@ -5,6 +5,7 @@ import useAuthHook from "../../hooks/useAuthHook";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaUser } from "react-icons/fa6";
+import "./AllUsers.css";
 
 const AllUsers = () => {
   const { user } = useAuthHook();
@@ -18,7 +19,6 @@ const AllUsers = () => {
   });
 
   const handleDeleteUser = (id, name) => {
-    console.log({ id, name });
     Swal.fire({
       title: "Are you sure you want to delete?",
       text: "You won't be able to revert this action!",
@@ -39,7 +39,6 @@ const AllUsers = () => {
   };
 
   const handleMakeAdmin = async (id, name) => {
-    console.log(id, name);
     const result = await Swal.fire({
       title: "Are you sure?",
       text: `"${name}" will be admin after the action!`,
@@ -64,55 +63,53 @@ const AllUsers = () => {
         <h2>All Users</h2>
         <h2>Total Users: {users.length}</h2>
       </div>
-      <div>
-        <div className="overflow-x-auto">
-          <table className="table table-zebra w-full">
-            {/* head */}
-            <thead className="bg-amber-500">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            {/* body */}
-            <tbody>
-              {users.map(({ _id, name, email, role }, idx) => (
-                <tr key={_id}>
-                  <th>{idx + 1}</th>
-                  <td>{name}</td>
-                  <td>{email}</td>
-                  <td className="uppercase">
-                    {role === "admin" ? (
-                      role
-                    ) : (
-                      <button
-                        onClick={() => handleMakeAdmin(_id, name)}
-                        title={`Assign "${name}" as admin`}
-                        className="btn bg-amber-500 hover:bg-amber-600 text-white text-2xl">
-                        <FaUser />
-                      </button>
-                    )}
-                  </td>
-                  <td>
+      <div className="overflow-x-auto mt-6">
+        <table className="table zebra-table w-full">
+          {/* head */}
+          <thead className="bg-amber-500">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          {/* body */}
+          <tbody>
+            {users.map(({ _id, name, email, role }, idx) => (
+              <tr key={_id}>
+                <th>{idx + 1}</th>
+                <td>{name}</td>
+                <td>{email}</td>
+                <td className="uppercase">
+                  {role === "admin" ? (
+                    role
+                  ) : (
                     <button
-                      disabled={
-                        email.toLowerCase() === user.email.toLowerCase() ||
-                        role === "admin"
-                      }
-                      onClick={() => handleDeleteUser(_id, name)}
-                      title={`Delete "${name}" from database`}
-                      className="btn bg-red-600 hover:bg-red-700 text-white text-2xl">
-                      <FaTrashAlt />
+                      onClick={() => handleMakeAdmin(_id, name)}
+                      title={`Assign "${name}" as admin`}
+                      className="btn bg-amber-500 hover:bg-amber-600 text-white text-2xl">
+                      <FaUser />
                     </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                  )}
+                </td>
+                <td>
+                  <button
+                    disabled={
+                      email.toLowerCase() === user.email.toLowerCase() ||
+                      role === "admin"
+                    }
+                    onClick={() => handleDeleteUser(_id, name)}
+                    title={`Delete "${name}" from database`}
+                    className="btn bg-red-600 hover:bg-red-700 text-white text-2xl">
+                    <FaTrashAlt />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
   );

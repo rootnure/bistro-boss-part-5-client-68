@@ -50,10 +50,7 @@ const Register = () => {
           role: "user",
         };
         // create user entry in the database
-        axiosPublic.post("/users", userInfo).then((userInDBRes) => {
-          console.log(userInDBRes);
-        });
-        console.log({ photo });
+        axiosPublic.post("/users", userInfo);
         updateUserInfo(name, photo).then(() => {
           reset();
           navigate("/", { replace: true });
