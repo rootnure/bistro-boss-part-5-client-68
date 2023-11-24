@@ -106,24 +106,24 @@ const DashboardLayout = () => {
 
             {/* shared menu items */}
             <li>
-              <NavLink to="/">
+              <Link to="/">
                 <FaHome className="text-2xl" /> Home
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/menu">
+              <Link to="/menu">
                 <FaBars className="text-2xl" /> Menu
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/shop">
+              <Link to="/shop">
                 <FaBagShopping className="text-2xl" /> Shop
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/contact-us">
+              <Link to="/contact-us">
                 <FaEnvelope className="text-2xl" /> Contact
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </div>

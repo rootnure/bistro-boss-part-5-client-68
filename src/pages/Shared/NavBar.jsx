@@ -54,13 +54,6 @@ const NavBar = () => {
       <li>
         <NavLink
           className="hover:text-white hover:scale-110 duration-75"
-          to="/dashboard">
-          Dashboard
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className="hover:text-white hover:scale-110 duration-75"
           to="/contact-us">
           Contact Us
         </NavLink>
